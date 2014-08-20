@@ -106,7 +106,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
         // get result
         String mathResult = result.getText().toString();
-        assertTrue("Add result should be " + ADD_RESULT + " but was " + mathResult, mathResult.equals(ADD_RESULT));
+        assertFalse("Add result should be different than " + ADD_RESULT , mathResult.equals(ADD_RESULT));
 	}
 	/////////////////////
 	
@@ -158,7 +158,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
         // get result
         String mathResult = result.getText().toString();
-        assertTrue("Rest result should be " + REST_RESULT + " but was " + mathResult, mathResult.equals(REST_RESULT));
+        assertFalse("Rest result should be different than " + REST_RESULT , mathResult.equals(REST_RESULT));
     }
 	///////////////////////
 	
@@ -210,7 +210,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
         // get result
         String mathResult = result.getText().toString();
-        assertTrue("Multiplication result should be " + MULTI_RESULT + " but was " + mathResult, mathResult.equals(MULTI_RESULT));
+        assertFalse("Multiplication result should be different than " + MULTI_RESULT, mathResult.equals(MULTI_RESULT));
     }
 	////////////////////////////////
 	
@@ -272,9 +272,12 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
         // get result
         String mathResult = result.getText().toString();
-        assertTrue("Division result should be " + DIVI_RESULT + " but was " + mathResult, mathResult.equals(DIVI_RESULT));
+        assertFalse("Division result should be different than " + DIVI_RESULT , mathResult.equals(DIVI_RESULT));
     }
-	
 	///////////////////////////
 	
+	@Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
 }
